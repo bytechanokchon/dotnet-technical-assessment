@@ -74,6 +74,10 @@ builder.Services.AddAuthentication(option =>
         };
     });
 builder.Services.AddAuthorization();
+builder.Services.AddHttpClient("ExternalBookAPI", (option) =>
+{
+    option.BaseAddress = new Uri("https://gita-api.vercel.app");
+});
 
 var app = builder.Build();
 
