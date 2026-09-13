@@ -1,10 +1,11 @@
-﻿using Applications.Services.Interfaces;
+﻿using Applications;
+using Applications.Services;
 using Domains.Entities;
 using Microsoft.EntityFrameworkCore;
-namespace Applications.Services.Implements
+
+namespace Infrastructures.Services
 {
     public class ProductService : IProductService
-
     {
         private readonly IApplicationDbContext _context;
 

@@ -1,7 +1,8 @@
-﻿using Applications.Services.Implements;
-using Applications.Services.Interfaces;
+﻿using Applications;
+using Applications.Services;
+using Infrastructures.Services;
 
-namespace Applications.Services
+namespace Infrastructures
 {
     public class ServiceUnitOfWork : IServiceUnitOfWork
     {

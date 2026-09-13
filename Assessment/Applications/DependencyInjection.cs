@@ -13,8 +13,6 @@ namespace Applications
                 configs.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
             });
 
-            services.AddScoped<IServiceUnitOfWork, ServiceUnitOfWork>();
-
             return services;
         }
     }

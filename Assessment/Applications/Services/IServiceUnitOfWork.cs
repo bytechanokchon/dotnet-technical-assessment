@@ -1,6 +1,4 @@
-﻿using Applications.Services.Interfaces;
-
-namespace Applications.Services
+﻿namespace Applications.Services
 {
     public interface IServiceUnitOfWork
     {
