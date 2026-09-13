@@ -8,25 +8,20 @@ namespace Applications.Handlers.Books.Queries
     {
         public class GetBookDetailQueryHandler : IRequestHandler<GetBookDetailQuery, BookDto>
         {
-            private readonly HttpClient _httpClient;
+            private readonly IServiceUnitOfWork _serviceUnitOfWork;
 
-            public GetBookDetailQueryHandler(IHttpClientFactory httpClientFactory)
+            public GetBookDetailQueryHandler(IServiceUnitOfWork serviceUnitOfWork)
             {
-                _httpClient = httpClientFactory.CreateClient("ExternalBookAPI");
+                this._serviceUnitOfWork = serviceUnitOfWork;
             }
 
             public async Task<BookDto> Handle(GetBookDetailQuery request, CancellationToken cancellationToken)
             {
-                string dataUrl = "/odi/verse/2/2";
-                var response = await this._httpClient.GetAsync(dataUrl);
-
-                response.EnsureSuccessStatusCode();
-
-                var bookDetail = await response.Content.ReadFromJsonAsync<BookExternalDto>();
+                var bookDetail = await this._serviceUnitOfWork.ExternalBookService.GetExternalBookAsync();
 
                 return new BookDto()
                 {
-                    Url = $"{this._httpClient.BaseAddress}{dataUrl}",
+                    Url = this._serviceUnitOfWork.ExternalBookService.BaseUrl,
                     Method = "GET",
                     Response = bookDetail
                 };

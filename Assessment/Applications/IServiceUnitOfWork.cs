@@ -6,5 +6,6 @@ namespace Applications
     {
         public IProductService ProductService { get; }
         public IJwtGenerator JwtGenerator { get; }
+        public IExternalBookService ExternalBookService { get; set; }
     }
 }
