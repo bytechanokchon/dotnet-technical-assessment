@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Applications.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Applications
 {
@@ -11,6 +12,8 @@ namespace Applications
             {
                 configs.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
             });
+
+            services.AddScoped<IServiceUnitOfWork, ServiceUnitOfWork>();
 
             return services;
         }

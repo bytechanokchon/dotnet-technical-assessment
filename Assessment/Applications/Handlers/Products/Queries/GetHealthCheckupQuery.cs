@@ -1,7 +1,7 @@
 ﻿using Applications.DTOs;
 using MediatR;
 
-namespace Applications.Products.Queries
+namespace Applications.Handlers.Products.Queries
 {
     public class GetHealthCheckupQuery : IRequest<HealthCheckupDto>
     {
