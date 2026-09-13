@@ -1,5 +1,4 @@
 ﻿using Applications.DTOs.Products;
-using Applications.Services;
 using MediatR;
 
 namespace Applications.Handlers.Products.Queries

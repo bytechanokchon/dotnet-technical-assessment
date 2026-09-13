@@ -1,9 +1,11 @@
 ﻿using Applications.Handlers.Products.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Assessment.Controllers
 {
+    [Authorize]
     public class ProductController : BaseController
     {
         public ProductController(ISender mediator) : base(mediator)
@@ -11,6 +13,7 @@ namespace Assessment.Controllers
 
         }
 
+        [AllowAnonymous]
         [HttpGet("Health-Checkup")]
         public async Task<IActionResult> GetHealthCheckup()
         {
