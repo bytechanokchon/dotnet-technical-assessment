@@ -11,14 +11,14 @@ namespace Infrastructures.Services
         public ExternalBookService(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient("ExternalBookAPI");
-            this.BaseUrl = $"{this._httpClient.BaseAddress}/odi/verse/2/2";
+            this.BaseUrl = $"{this._httpClient.BaseAddress}odi/verse/2/2";
         }
 
         public string BaseUrl { get; private set; }
 
         public async Task<BookExternalDto?> GetExternalBookAsync()
         {
-            string dataUrl = "/odi/verse/2/2";
+            string dataUrl = "odi/verse/2/2";
             var response = await this._httpClient.GetAsync(dataUrl);
 
             response.EnsureSuccessStatusCode();
