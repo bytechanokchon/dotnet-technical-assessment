@@ -16,6 +16,8 @@ namespace Applications.Handlers.Products.Commands
         {
             public async Task<List<CharacterRankDto>> Handle(SortCharacterQuery request, CancellationToken cancellationToken)
             {
+                if (request.Text.Length > 99) throw new Exception("Texh should less than 99 character");
+
                 List<string> words = new List<string>();
 
                 string[] wordSpliteds = request.Text.Split(",");

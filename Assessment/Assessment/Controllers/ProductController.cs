@@ -29,7 +29,6 @@ namespace Assessment.Controllers
             return Ok(result);
         }
 
-        [AllowAnonymous]
         [HttpPost("SortCharacter/{text}")]
         public async Task<IActionResult> SortCharacter(string text)
         {
