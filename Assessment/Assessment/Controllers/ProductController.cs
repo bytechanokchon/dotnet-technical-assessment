@@ -1,4 +1,5 @@
-﻿using Applications.Handlers.Products.Queries;
+﻿using Applications.Handlers.Products.Commands;
+using Applications.Handlers.Products.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,14 @@ namespace Assessment.Controllers
         public async Task<IActionResult> GetProducts()
         {
             var result = await this._mediator.Send(new GetProductsQuery());
+            return Ok(result);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("SortCharacter/{text}")]
+        public async Task<IActionResult> SortCharacter(string text)
+        {
+            var result = await this._mediator.Send(new SortCharacterQuery(text));
             return Ok(result);
         }
     }
