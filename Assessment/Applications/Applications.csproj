@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Handlers\Auths\Queries\" />
     <Folder Include="Handlers\Products\Commands\" />
   </ItemGroup>
 

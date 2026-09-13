@@ -26,7 +26,10 @@ namespace Infrastructures.Services
                 throw new Exception("Jwt setting invalid.");
             }
 
-            var key = Encoding.ASCII.GetBytes(secretKey);
+            var key = Encoding.UTF8.GetBytes(secretKey);
+
+            Console.WriteLine($"JWT Length: {secretKey.Length}");
+            Console.WriteLine($"JWT Secret: {secretKey}");
 
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
